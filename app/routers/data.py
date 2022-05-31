@@ -4,14 +4,20 @@ from typing import List, Optional
 
 from sqlalchemy import func
 # from sqlalchemy.sql.functions import func
-from .. import models, schemas
-from ..database import get_db
+
 router = APIRouter(
     prefix="/data",
     tags=['Data']
 )
 
+@router.get("/")
+def root():
+    return {"message": "Data"}
 
+
+
+
+"""
 @router.get("/", response_model=List[schemas.Orta] )
 def test_post(db: Session = Depends(get_db)):
     #post = db.query(models.Data).all()
@@ -28,3 +34,4 @@ def test_post(db: Session = Depends(get_db)):
     #post = db.query(models.Data).first()
     return post
 
+"""

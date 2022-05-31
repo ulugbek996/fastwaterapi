@@ -4,7 +4,7 @@ from app import models ,schemas
 from app.database import  engine, get_db
 from sqlalchemy.orm import  Session
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import data , sped
+from app.routers import data , user
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 app.include_router(data.router)
-app.include_router(sped.router)
+app.include_router(user.router)
 
 
 
