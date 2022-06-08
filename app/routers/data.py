@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import List, Optional
-
+from app import  models, schemas
+from app.database import get_db
 from sqlalchemy import func
 # from sqlalchemy.sql.functions import func
 
@@ -14,7 +15,11 @@ router = APIRouter(
 def root():
     return {"message": "Data"}
 
-
+@router.get("/last" , response_model=schemas.DataWater) #, response_model=schemas.DataWater
+def test_post(db: Session = Depends(get_db)):
+    post = db.query(models.DataWater).order_by(models.DataWater.id.desc()).first()
+    #post = db.query(models.Data).first()
+    return post
 
 
 """

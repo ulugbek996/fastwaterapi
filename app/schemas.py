@@ -4,10 +4,35 @@ from pydantic import BaseModel ,EmailStr
 from datetime import datetime
 
 
+class DataWater(BaseModel):
+    station_id: int
+    level: float
+    flow: float
+    corec: int
+    time: str
+    class Config:
+        orm_mode = True
 
-
-
-
+class DataWaterHour(BaseModel):
+    station_id: int
+    level: float
+    flow: float
+    time: str
+    class Config:
+        orm_mode = True
+class DataWell(BaseModel):
+    level: float
+    meloration: float
+    temp: float
+    time: str
+    class Config:
+        orm_mode = True
+class DataWellHour(BaseModel):
+    level: float
+    meloration: float
+    time: str
+    class Config:
+        orm_mode = True
 
 
 
