@@ -34,9 +34,53 @@ class DataWellHour(BaseModel):
     class Config:
         orm_mode = True
 
+class Station(BaseModel):
+    id: int
+    name: str
+    admin_id: int
+    region_id: int
+    discret_id: int
+    balance_id: int
+    lan: float
+    lon: float
+    imei: str
+    proshivka: str
+    update: datetime
+    create: datetime
+    class Config:
+        orm_mode = True
 
-
-
+class StationCreate(BaseModel):
+    name: str
+    admin_id: int
+    region_id: int
+    discret_id: int
+    balance_id: int
+    lan: float
+    lon: float
+    imei: str
+    proshivka: str
+    update: datetime
+    create: datetime
+    class Config:
+        orm_mode = True
+class Regions(BaseModel):
+    id: int
+    name: str
+    class Config:
+        orm_mode = True
+class Discret(BaseModel):
+    id: int
+    name: str
+    region_id: int
+    class Config:
+        orm_mode = True
+class Balance(BaseModel):
+    id: int
+    name: str
+    region_id: int
+    class Config:
+        orm_mode = True
 
 """
 class Data(BaseModel):
