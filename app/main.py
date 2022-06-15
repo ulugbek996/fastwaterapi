@@ -25,5 +25,5 @@ app.include_router(station.router)
 
 
 @app.get("/")
-def root():
+async def  root():
     return {"message": "Smart Water Api"}

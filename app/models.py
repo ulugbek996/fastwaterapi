@@ -112,7 +112,11 @@ class InfoWell(Base):
     solar = Column(Integer , nullable=False)
     time = Column(String , nullable=False)
 
-
+class Userstation(Base):
+    __tablename__ = 'userstation'
+    id = Column(Integer , primary_key=True , nullable=False)
+    user_id = Column(Integer , ForeignKey('user.id'), nullable=False)
+    stations = Column(String(2000) , nullable=False)
 
 
 
